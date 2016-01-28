@@ -1,24 +1,14 @@
 <p>
-<strong>Title:</strong>
+<strong>文章标题:</strong>
   <%= @article.title %>
 </p>
  
 <p>
-  <strong>Text:</strong>
+  <strong>文章详情:</strong>
   <%= @article.text %>
 </p>
 <h2>评论列表</h2>
-<% @article.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
- 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
+<%= render @article.comments %>
 <h2>添加评论</h2>
 <%= form_for([@article, @article.comments.build]) do |f| %>
   <p>
