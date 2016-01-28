@@ -4,6 +4,12 @@ class CommentsController < ApplicationController
         @comment = @article.comments.create(comment_params)
         redirect_to article_path(@article)
     end
+    def destroy
+        @atricle = Article.find(params[:article_id])
+        @comment = @article.comment.find(params[:id])
+        @comment.destroy
+        redirect_to article_path(@article)
+    end
 
     private
       def comment_params
